@@ -5,7 +5,7 @@ define(['$', 'hijax'], function($, Hijax) {
             receive: function(data, xhr) {
                 console.log(data);
             }
-        }); 
+        });
     };
 
     return pdpUI;
