@@ -185,10 +185,7 @@ Components are HTML and CSS (sometimes JavaScript too) files that can be used ac
 
     The page should look like the mock. 
 
-    *Page mock goes here*
-
-
-    ![Page Mock](https://gm1.ggpht.com/asmnWST6Mx9l-gDqk5B6yUnqKiV5oN2iMpS5nt_M4W26rGWhZOl1y8OruXhNy3lToNLWpLCH1GxuUbXnMOkM24T-Ng7aJRyG7skYHk1U2oPqM7T2VK9o1mUS9xdUhze55cXsvXsAVZ8HKAOWyEaQY9N_nMQe-q5xAmbMuVPBpG-8hM40gr3ZALkukmj59vVbg9ijjnT-0R3dnOPqfd0GRuQDtDL2fJ2o2CqZ41tFnrHu0qVHcxp7g7dRH3mYnG052e0X_460aMmr1mnHH5wUdQM-LsuVAp7eZ7Uek2ka3229rYGSUjZkIcH3MrxS3jD4BAxEl8XOlHQMWqMOO7a8VE4YiaLT6wqeuPjJY4EORE1AgAXzQky0xCkm0OsXTPMuULNkbCTw7c6U2HYfWgUwVlGfgiTI_amHXuai1IPySNVfn2wkjk_iIymB--Cz2ltwMfYgH9L6tlqHQEdqi6kG2E28-UimEyKRIczGyqc6sLPRDLF5tskqNWNwY3QfvZNLCXU8H-LxLjLwwTp4VxXGb1C20qi-f4DdVtn1qiV1u494IKrXH5khJc_JOsBwVps6mG5PWYsx63XWHO2WQbJ6N-1w-5vIQgzTtvYqJSb2n0tKbdezxJH-V5stUPAYKmq1UICTZM3S1FZIkDcOXEGIP_Q0SVV4Z2b2OjwG9ZlYrK2DBA=w824-h1082-l75-ft)
+    ![Page Mock](https://raw.githubusercontent.com/mobify/workshop--hijax/step-4-parsers-and-components/static/img/comments-mock.png?token=ABPdYd3NrKfw7XdyBmwNnJndJgP5htA6ks5WZ2xkwA%3D%3D)
 
 8. To stop the preview, enter `[control] c` on the command line.
 
