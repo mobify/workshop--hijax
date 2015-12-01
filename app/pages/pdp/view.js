@@ -11,7 +11,7 @@ function($, BaseView, template) {
         context: {
             templateName: 'pdp',
             comments: function() {
-                return $('.comment');
+                return $('.comments');
             }
         }
     };
