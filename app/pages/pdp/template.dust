@@ -1,9 +1,7 @@
 {>"global/base"/}
 
 {<contentBlock}
-    {!
-        Content for view goes here. If you remove this block, the default is the entire body content.
-    !}
+    {comments}
 {/contentBlock}
 
 {<uiScripts}
