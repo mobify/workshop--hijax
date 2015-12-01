@@ -55,7 +55,7 @@ In order to demonstrate how Hijax, parsers and components work, we'll be adding 
 
     The page will now contain comments layed out in a table. The current layout won't work with the design for the page, but we'll address that in the next few steps.
 
-    *page mock goes here*
+    ![Page Mock](https://raw.githubusercontent.com/mobify/workshop--hijax/step-4-parsers-and-components/static/img/comments-mock.png?token=ABPdYd3NrKfw7XdyBmwNnJndJgP5htA6ks5WZ2xkwA%3D%3D)
 
 10. To stop the preview, enter `[control] c` on the command line.
 
