@@ -13,7 +13,7 @@ In order to style the comments correctly we'll need to intercept the AJAX reques
 
 ##Task
 
-###Add Comments to the PDP
+###Add Hijax Plugin
 
 1. In the `bower.json` file add the following:
 
@@ -55,13 +55,13 @@ In order to style the comments correctly we'll need to intercept the AJAX reques
     }); 
     ```
 
-8. Back in the command line, enter the `grunt preview` command to start the browser preview.
-9. Work through the [Preview your Project](http://adaptivejs.mobify.com/v1.0/docs/preview-your-project) tutorial.
+6. Back in the command line, enter the `grunt preview` command to start the browser preview.
+7. Work through the [Preview your Project](http://adaptivejs.mobify.com/v1.0/docs/preview-your-project) tutorial.
     Use the `http://www.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
 
     Open your browsers inspector and view the console. You'll see the console.log statement we just added that will contain the data from the desktop site's AJAX call.
 
-10. To stop the preview, enter `[control] c` on the command line.
+8. To stop the preview, enter `[control] c` on the command line.
 
 ##Continue to Step 4
 
