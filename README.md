@@ -2,7 +2,7 @@
 
 In order to demonstrate how Hijax, parsers and components work, we'll be adding the comments section to the PDP. The comments section should look like this:
 
-    ![Page Mock](https://raw.githubusercontent.com/mobify/workshop--hijax/step-4-parsers-and-components/static/img/comments-mock.png?token=ABPdYd3NrKfw7XdyBmwNnJndJgP5htA6ks5WZ2xkwA%3D%3D)
+![Page Mock](https://raw.githubusercontent.com/mobify/workshop--hijax/step-4-parsers-and-components/static/img/comments-mock.png?token=ABPdYd3NrKfw7XdyBmwNnJndJgP5htA6ks5WZ2xkwA%3D%3D)
 
 
 
