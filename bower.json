@@ -8,6 +8,7 @@
         "deckard": "~1.0.0",
         "dustjs-linkedin": "2.3.3",
         "spline": "~1.0",
-        "level": "~0.1.0"
+        "level": "~0.1.0",
+         "hijax": "0.2.0"
 }
 }
