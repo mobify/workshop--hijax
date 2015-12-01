@@ -55,13 +55,38 @@ In order to style the comments correctly we'll need to intercept the AJAX reques
     }); 
     ```
 
-6. Back in the command line, enter the `grunt preview` command to start the browser preview.
-7. Work through the [Preview your Project](http://adaptivejs.mobify.com/v1.0/docs/preview-your-project) tutorial.
+6. In the `app/ui.js` file add pdp ui file to the dependency list and pass it as an argument to the main function:
+
+    ```
+    /**
+     * Scripts required here will be combined into ui.js
+     */
+
+    require([
+        'global/ui',
+        'pages/home/ui'
+        'pages/pdp/ui'
+    ],
+    function(
+        globalUI,
+        home,
+        pdpUI
+    ) {
+
+        // This file gets pre-loaded so we dont' want to explicitly execute
+        //  anything here. Instead we will wait for a require statement run
+        //  in our template
+
+    }, null, true); // relPath, forceSync
+    ```
+
+7. Back in the command line, enter the `grunt preview` command to start the browser preview.
+8. Work through the [Preview your Project](http://adaptivejs.mobify.com/v1.0/docs/preview-your-project) tutorial.
     Use the `http://www.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
 
     Open your browsers inspector and view the console. You'll see the console.log statement we just added that will contain the data from the desktop site's AJAX call.
 
-8. To stop the preview, enter `[control] c` on the command line.
+9. To stop the preview, enter `[control] c` on the command line.
 
 ##Continue to Step 4
 
