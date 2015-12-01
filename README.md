@@ -1,166 +1,201 @@
-#merlins-potions-adaptive-2
+#Step 4: Add a Parser and Component for the Comments
 
-The `merlins-potions-adaptive-2` Adaptive.js project.
+Now that we're able to intercept the desktop site's AJAX call we can transform the markup for comments to fit our designs. We'll use components and parsers to better organize the code within the project.
 
-For information on using Adaptive.js, checkout the [documentation](https://cloud.mobify.com/docs/adaptivejs/).
-Contact <support@mobify.com> for assistance.
+Parsers can be used to break up markup into smaller pieces to be used within a partial template file. 
 
-## Quickstart
+Components are HTML and CSS (sometimes JavaScript too) files that can be used accross the site. In this case the comments component that we're creating could be used on another page as well.
 
-Adaptive.js is a JavaScript framework for dynamically adapting websites for
-smartphone, tablet and other devices. It consists of:
-- A JavaScript SDK for adapting webpages.
-- Grunt tasks for developing and deploying completed adaptations as a "bundle".
 
-This project contains specific adaptation for `merlins-potions-adaptive-2`.
+### Install NPM Modules
 
-Adaptive.js relies on:
-- The [Mobify Tag](http://adaptivejs.mobify.com/) to start the adaptation and load the bundle.
-- The [Mobify Cloud](http://cloud.mobify.com/) to distributes bundles to 👨👩👧👦 around the 🌎🌍🌏.
-- The open source [Node.js](https://nodejs.org/en/about/) JavaScript framework.
-- The open source [Grunt](http://gruntjs.com/) task runner.
-- The open source [Bower](http://bower.io/) package manger.
+1. In your `workshop--hijax` project folder, enter the following command to install NPM modules:
 
-Follow these steps to install and run the project:
+    ```
+    npm install
+    ```
 
-```sh
-# Install a compatible version of Node and verify that it works. Adaptive.js is
-# tested on Node versions ^0.10.x.
-open https://nodejs.org/
-node --version
+##Task
 
-# Use NPM, the Node package manager, to install Grunt and Bower:
-npm install -g grunt-cli bower
+###Add The Comment Component
 
-# Clone this project:
-git clone https://github.com/mobify/merlins-potions-adaptive-2.git ; cd merlins-potions-adaptive-2
+1. Add a folder called `comment` under `app/components`
+2. Within the `app/components/comment` folder add a file called `comment.dust` with the following content:
 
-# Use NPM and Bower to install the project specific dependencies:
-npm install ; bower install
+    ```
+    <div class="c-comment">
+        {#content}
+            <div class="c-comment__rating">{rating}</div>
+            <h3>{title}</h3>
+            <span class="c-comment__author">{author}</span>
 
-# Run the Adaptive.js development server using the Grunt task runner:
-grunt preview
+            <ul class="c-comment__stats">
+                {#stats}
+                    <li class="c-comment__stat">{.}</li>
+                {/stats}
+            </ul>
 
-# The Adaptive.js development server prints a preview link to load this project
-# from your computer. Open it in your browser to load the adaptation. The
-# development server automatically rebuilds edited files. See the Adaptive.js
-# documentation for more information on building using Adaptive.js:
-open https://adaptivejs.mobify.com
+            <div class="c-comment__body">{body}</div>
+        {/content}
+    </div>
+    ```
 
-# When you're ready to share your adaptation, you'll need to upload it as a
-# bundle to the Mobify Cloud. First, find and save your API key:
-open https://cloud.mobify.com/account/
-grunt adaptive-save_credentials --user="$EMAIL" --key="$APIKEY"
+3. Still within the folder add a file called `_style.scss` with the following content:
 
-# Now upload a your bundle to share it!
-grunt upload
+    ```
+    .c-comment {
+        margin: $v-space $h-space;
+        padding: $v-space 0;
+        border-top: 1px solid $grey-90;
+    }
 
-# If you're feeling lucky, deploy your changes straight to prod ;)
-grunt upload --deploy-to-target production
+    .c-comment__title {
+        margin: $v-space 0;
+
+        font-family: $sans-serif;
+    }
+
+    .c-comment__author {
+        font-style: italic;
+    }
+
+    .c-comment__stats {
+        padding: $v-space 0;
+    }
+
+    .c-comment__stat {
+        font-size: $small-font-size;
+    }
+    ```
+
+4. In the `app/global/styles/_components.scss` file add the following line:
+
+    ```
+    @import 'components/comment/style';
+    ```
+
+5. Save all the new files
+
+
+###Add A Comment Parser
+
+1. Add a folder called `parsers` under `app/pages/pdp`
+2. Within the folder `app/pages/pdp` add a file called `comment.js` with the following content:
+
+    ```
+    define([
+        '$'
+    ], function($) {
+        var _parse = function($comment) {
+            var comment = {
+                rating: $comment.find('.rating').remove().text(),
+                stats: $comment.find('td:nth-of-type(1) span').map(function() {
+                    return $(this).text();
+                }),
+                title: $comment.find('h3').text(),
+                author: $comment.find('td:nth-of-type(2) span').text(),
+                body: $comment.find('td:nth-of-type(2) p').text()
+            };
+
+            return { content: comment };
+        };
+
+        return {
+            parse: _parse
+        };
+    });
+    ```
+
+3. Save the new file
+
+
+###Integrate with Hijax
+
+1. In the `app/pages/pdp/view.js` file remove the comments key we added previously. We don't need it anymore.
+2. In the `app/pages/pdp/template.dust` file update the contentBlock to the following:
+
+    ```
+    {<contentBlock}
+        <div class="c-comments js-comments">
+            <h2 class="t-pdp__heading">Comments</h2>
+        </div>
+    {/contentBlock}
+    ```
+
+3. In the `app/pages/pdp/ui.js` file include the parser and dust component files you just created:
+
+    ```
+    define([
+        '$',
+        'hijax',
+        'pages/pdp/parsers/comment',
+        'dust!components/comment/comment'
+    ], function($, Hijax, CommentParser, CommentTemplate) {
+        var pdpUI = function() {
+    ```
+
+4. Still in `app/pages/pdp/ui.js` update your hijax call to use the parser and dust component files:
+
+    ```
+    hijax.set('comments', '/comments.html', {
+        receive: function(data, xhr) {
+            var $data = $(data);
+            var comments = $data.find('.comment').map(function() {
+                var $comment = $(this);
+                new CommentTemplate(CommentParser.parse($comment), function(err, html) {
+                    $('.js-comments').append(html);
+                });
+            });
+        }
+    });
+    ```
+
+5. The final result for `app/pages/pdp/ui.js` should look like this:
+
+    ```
+    define([
+        '$',
+        'hijax',
+        'pages/pdp/parsers/comment',
+        'dust!components/comment/comment'
+    ], function($, Hijax, CommentParser, CommentTemplate) {
+        var pdpUI = function() {
+            // Add any scripts you would like to run on the pdp page only here
+            var hijax = new Hijax();
+            hijax.set('comments', '/comments.html', {
+                receive: function(data, xhr) {
+                    var $data = $(data);
+                    var comments = $data.find('.comment').map(function() {
+                        var $comment = $(this);
+                        new CommentTemplate(CommentParser.parse($comment), function(err, html) {
+                            $('.js-comments').append(html);
+                        });
+                    });
+                }
+            });
+        };
+
+        return pdpUI;
+    });
+    ```
+
+6. Back in the command line, enter the `grunt preview` command to start the browser preview.
+7. Work through the [Preview your Project](http://adaptivejs.mobify.com/v1.0/docs/preview-your-project) tutorial.
+    Use the `http://www.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
+
+    The page should look like the mock. 
+
+    *Page mock goes here*
+
+
+    ![Page Mock](https://gm1.ggpht.com/asmnWST6Mx9l-gDqk5B6yUnqKiV5oN2iMpS5nt_M4W26rGWhZOl1y8OruXhNy3lToNLWpLCH1GxuUbXnMOkM24T-Ng7aJRyG7skYHk1U2oPqM7T2VK9o1mUS9xdUhze55cXsvXsAVZ8HKAOWyEaQY9N_nMQe-q5xAmbMuVPBpG-8hM40gr3ZALkukmj59vVbg9ijjnT-0R3dnOPqfd0GRuQDtDL2fJ2o2CqZ41tFnrHu0qVHcxp7g7dRH3mYnG052e0X_460aMmr1mnHH5wUdQM-LsuVAp7eZ7Uek2ka3229rYGSUjZkIcH3MrxS3jD4BAxEl8XOlHQMWqMOO7a8VE4YiaLT6wqeuPjJY4EORE1AgAXzQky0xCkm0OsXTPMuULNkbCTw7c6U2HYfWgUwVlGfgiTI_amHXuai1IPySNVfn2wkjk_iIymB--Cz2ltwMfYgH9L6tlqHQEdqi6kG2E28-UimEyKRIczGyqc6sLPRDLF5tskqNWNwY3QfvZNLCXU8H-LxLjLwwTp4VxXGb1C20qi-f4DdVtn1qiV1u494IKrXH5khJc_JOsBwVps6mG5PWYsx63XWHO2WQbJ6N-1w-5vIQgzTtvYqJSb2n0tKbdezxJH-V5stUPAYKmq1UICTZM3S1FZIkDcOXEGIP_Q0SVV4Z2b2OjwG9ZlYrK2DBA=w824-h1082-l75-ft)
+
+8. To stop the preview, enter `[control] c` on the command line.
+
+##Ready for The Next Step?
+
+Sorry that's it, we're all done. To see the final product continue to the completed-workshop branch.
+
 ```
-
-## Project Information
-
-- **Project Slug**: merlins-potions-adaptive-2
-- **Site URL**: merlinspotions.com
-- **Generated by**: generator-adaptivejs@2.1.0
-
-## Grunt Tasks
-
-Adaptive.js uses the [Grunt](http://gruntjs.com/) task runner to manage common
-development, testing and deployment tasks.
-
-### `grunt` or `grunt help`
-
-Prints to the terminal a list of commonly used Adaptive.js Grunt tasks along with their options.
-
-### `grunt preview`
-
-Starts the development server and outputs a preview link to load files from your
-computer. Follow the link in your browser to load the local bundle. Edited
-files are rebuilt automatically. By default, the server is set on HTTP port 8080
-and HTTPS port 8443. Use the `--port` flag to set a custom HTTP port and `--https-port`
-to set a custom HTTPS port.
-
-[Check out the docs for more information](https://cloud.mobify.com/docs/adaptivejs/getting-started/#/previewing-your-adaptation/).
-
-### `grunt push`
-
-Uploads the local bundle to the [Mobify Cloud](https://cloud.mobify.com/) for
-publishing. Use the `--message|-m` flag set the bundle label.
-
-```sh
-grunt push --message "v1.24.1: Fixes product description page regression."
-```
-
-### `grunt lint`
-
-Runs eslint against the project, ensuring that code style and syntax are correct. For more information on lint errors, please see [eslint.org](http://eslint.org/docs/rules/).
-
-To find out more about Mobify's code style rules, please see the [Mobify Code Style](https://github.com/mobify/mobify-code-style) repository.
-
-### `grunt test`
-
-Runs unit and integration tests:
-
-```
-# Run tests:
-grunt test
-
-# Run tests whose name matches the case sensitive filter. This option may also
-# be used with the `test_skip_build` tasks.
-grunt test --filter Home
-
-# Run tests and skips the build process:
-grunt test_skip_build
-
-# Run tests in the browser, viewable at http://localhost:8888/tests/runner
-grunt test_browser
-```
-
-### `grunt test_ci`
-
-Runs unit tests like `grunt test` but with output designed for continuous
-integration environments.
-
-### `grunt nightwatch`
-
-Runs Nightwatch, system test framework written in Node.js.
-
-```sh
-# Run system tests:
-grunt nightwatch
-
-# Run a group of system tests:
-grunt nightwatch --group path/to/my/tests/
-
-# Run a specific system test:
-grunt nightwatch --test path/to/my/tests/test.js
-
-# Run all tests, parallelized by group:
-grunt nightwatch-parallel
-```
-
-Device testing can also be accomplished using [Appium](http://appium.io). This
-requires the Android/iOS development environment to be set up (eg. `$ANDROID_HOME`
-pointing to Android SDK, Xcode installed with simulators, etc). To run on a real
-device, connect it to your computer.
-
-```
-# Run tests on a local Android device using Appium:
-grunt android
-
-# Runs tests on a local iOS device using Appium:
-grunt ios
-```
-
-Device testing on Android emulators and iOS simulators can also be done through
-[Sauce Labs](https://saucelabs.com). Specify environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`.
-
-```
-# Run system tests on an Android emulater.
-grunt sauce-android
-
-# Run system tests on an iOS emulator.
-grunt sauce-ios
+git reset --hard HEAD && git clean -df && git checkout completed-workshop
 ```
