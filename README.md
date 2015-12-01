@@ -1,6 +1,8 @@
 #Step 2: Add Comments to the PDP
 
-In order to demonstrate how Hijax, parsers and components work, we'll be adding the comments section to the PDP.
+In order to demonstrate how Hijax, parsers and components work, we'll be adding the comments section to the PDP. The comments section should look like this:
+
+    ![Page Mock](https://raw.githubusercontent.com/mobify/workshop--hijax/step-4-parsers-and-components/static/img/comments-mock.png?token=ABPdYd3NrKfw7XdyBmwNnJndJgP5htA6ks5WZ2xkwA%3D%3D)
 
 
 
@@ -54,8 +56,6 @@ In order to demonstrate how Hijax, parsers and components work, we'll be adding 
     Use the `http://www.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
 
     The page will now contain comments layed out in a table. The current layout won't work with the design for the page, but we'll address that in the next few steps.
-
-    ![Page Mock](https://raw.githubusercontent.com/mobify/workshop--hijax/step-4-parsers-and-components/static/img/comments-mock.png?token=ABPdYd3NrKfw7XdyBmwNnJndJgP5htA6ks5WZ2xkwA%3D%3D)
 
 10. To stop the preview, enter `[control] c` on the command line.
 
