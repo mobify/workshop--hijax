@@ -9,10 +9,12 @@ function($, BaseView, template) {
         extend: BaseView,
 
         context: {
-            templateName: 'pdp',
-            comments: function() {
-                return $('.comments');
-            }
+            templateName: 'pdp'
         }
+
+        /**
+         * If you wish to override preProcess/postProcess in this view, have a look at the documentation:
+         * http://adaptivejs.mobify.com/v1.0/docs/views
+         */
     };
 });

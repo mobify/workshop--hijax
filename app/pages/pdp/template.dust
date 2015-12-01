@@ -1,7 +1,9 @@
 {>"global/base"/}
 
 {<contentBlock}
-    {comments}
+    <div class="c-comments js-comments">
+        <h2 class="t-pdp__heading">Comments</h2>
+    </div>
 {/contentBlock}
 
 {<uiScripts}
@@ -16,4 +18,3 @@
     })(Adaptive.AMD.require);
     </script>
 {/uiScripts}
-
