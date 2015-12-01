@@ -1,0 +1,21 @@
+{>"global/base"/}
+
+{<contentBlock}
+    {!
+        Content for view goes here. If you remove this block, the default is the entire body content.
+    !}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/pdp/ui.js
+    (function(require) {
+        require(["global/ui", "pages/pdp/ui"], function(globalUI, pdpUI) {
+            globalUI();
+            pdpUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}
+
