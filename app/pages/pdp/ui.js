@@ -1,6 +1,11 @@
-define(['$'], function($) {
+define(['$', 'hijax'], function($, Hijax) {
     var pdpUI = function() {
-        // Add any scripts you would like to run on the pdp page only here
+        var hijax = new Hijax();
+        hijax.set('comments', '/comments.html', {
+            receive: function(data, xhr) {
+                console.log(data);
+            }
+        }); 
     };
 
     return pdpUI;

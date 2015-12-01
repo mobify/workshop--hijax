@@ -4,12 +4,14 @@
 
 require([
     'global/ui',
-    'pages/home/ui'
+    'pages/home/ui',
+    'pages/pdp/ui'
     // Add additional UI scripts here
 ],
 function(
     globalUI,
-    home
+    home,
+    PDPUI
 ) {
 
     // This file gets pre-loaded so we dont' want to explicitly execute
