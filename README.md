@@ -12,7 +12,7 @@ For this workshop we'll be starting work on the PDP for merlins potions. We'll b
 
 ##Task
 
-###Create a New 'category' View
+###Create a New 'pdp' View
 
 1. In your `workshop--hijax` project folder, enter the following command to run the sub-generator with Yeoman:
 
