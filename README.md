@@ -24,6 +24,12 @@ In order to style the comments correctly we'll need to intercept the AJAX reques
     Make sure you add a comma on the end of the previous line.
 
 2. Back in the command line, enter `bower install`
+
+    During the install you may find be prompted by bower to select between two possible versions of one of the plugins (such as require.js). Unless the versions are drastically different, select the higher of the two versions.
+
+    ![Bower Version Choice]()
+    In the example here, 2 would be the best choice.
+
 3. In `app/config/ui.js` hook up "hijax" by adding the following line:
 
     ```
