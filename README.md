@@ -25,9 +25,9 @@ In order to style the comments correctly we'll need to intercept the AJAX reques
 
 2. Back in the command line, enter `bower install`
 
-    During the install you may find be prompted by bower to select between two possible versions of one of the plugins (such as require.js). Unless the versions are drastically different, select the higher of the two versions.
+    During the install you may be prompted by bower to select between two possible versions of one of the plugins (such as require.js). Unless the versions are drastically different, select the higher of the two versions.
 
-    ![Bower Version Choice]()
+    ![Bower Version Choice](https://raw.githubusercontent.com/mobify/workshop--hijax/step-3-integrate-hijax/static/img/bower_version_choice.png?token=ABPdYZoZbuoqarncfiNqqz4YLGQXZaGAks5WabZ0wA%3D%3D)
     In the example here, 2 would be the best choice.
 
 3. In `app/config/ui.js` hook up "hijax" by adding the following line:
