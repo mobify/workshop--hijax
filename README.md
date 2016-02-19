@@ -55,7 +55,7 @@ For this workshop we'll be starting work on the PDP for merlins potions. We'll b
 8. Save the `router.js` file with these changes in your editor.
 9. Back in the command line, enter the `grunt preview` command to start the browser preview.
 10. Work through the [Preview your Project](http://adaptivejs.mobify.com/v1.0/docs/preview-your-project) tutorial.
-    Use the `http://www.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
+    Use the `http://www.training.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
 
     A page with just the sites header and footer will appear.
 
