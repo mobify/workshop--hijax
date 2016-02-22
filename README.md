@@ -27,7 +27,7 @@ In order to style the comments correctly we'll need to intercept the AJAX reques
 
     During the install you may be prompted by bower to select between two possible versions of one of the plugins (such as require.js). Unless the versions are drastically different, select the higher of the two versions.
 
-    ![Bower Version Choice](https://raw.githubusercontent.com/mobify/workshop--hijax/step-3-integrate-hijax/static/img/bower_version_choice.png?token=ABPdYZoZbuoqarncfiNqqz4YLGQXZaGAks5WabZ0wA%3D%3D)
+    <img src="https://raw.githubusercontent.com/mobify/workshop--hijax/step-3-integrate-hijax/static/img/bower_version_choice.png?token=AKTX6h5B7moFeKkGIHaWRKZ51zO-O-uFks5W1I9AwA%3D%3D" height="100" />
 
     In the example here, 2 would be the best choice.
 
