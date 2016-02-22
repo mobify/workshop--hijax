@@ -80,7 +80,7 @@ Components are HTML and CSS (sometimes JavaScript too) files that can be used ac
 ###Add A Comment Parser
 
 1. Add a folder called `parsers` under `app/pages/pdp`
-2. Within the folder `app/pages/pdp` add a file called `comment.js` with the following content:
+2. Within the folder `app/pages/pdp/parsers` add a file called `comment.js` with the following content:
 
     ```
     define([
