@@ -80,7 +80,7 @@ Components are HTML and CSS (sometimes JavaScript too) files that can be used ac
 ###Add A Comment Parser
 
 1. Add a folder called `parsers` under `app/pages/pdp`
-2. Within the folder `app/pages/pdp` add a file called `comment.js` with the following content:
+2. Within the folder `app/pages/pdp/parsers` add a file called `comment.js` with the following content:
 
     ```
     define([
@@ -185,7 +185,7 @@ Components are HTML and CSS (sometimes JavaScript too) files that can be used ac
 
     The page should look like the mock. 
 
-    ![Page Mock](https://raw.githubusercontent.com/mobify/workshop--hijax/step-4-parsers-and-components/static/img/comments-mock.png?token=ABPdYd3NrKfw7XdyBmwNnJndJgP5htA6ks5WZ2xkwA%3D%3D)
+    <img src="https://raw.githubusercontent.com/mobify/workshop--hijax/step-4-parsers-and-components/static/img/comments-mock.png?token=AKTX6hucqVA6zcvci1B4gEBpCtiNG2wkks5W1Il1wA%3D%3D" height="400" />
 
 8. To stop the preview, enter `[control] c` on the command line.
 
@@ -194,5 +194,5 @@ Components are HTML and CSS (sometimes JavaScript too) files that can be used ac
 Sorry that's it, we're all done. To see the final product continue to the completed-workshop branch.
 
 ```
-git reset --hard HEAD && git clean -df && git checkout completed-workshop
+git reset --hard HEAD && git clean -df && git checkout [completed-workshop](https://github.com/mobify/workshop--hijax/blob/completed-workshop/README.md)
 ```
