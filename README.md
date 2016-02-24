@@ -191,8 +191,8 @@ Components are HTML and CSS (sometimes JavaScript too) files that can be used ac
 
 ##Ready for The Next Step?
 
-Sorry that's it, we're all done. To see the final product continue to the completed-workshop branch.
+Sorry that's it, we're all done. To see the final product continue to the [completed-workshop branch](https://github.com/mobify/workshop--hijax/blob/completed-workshop/README.md).
 
 ```
-git reset --hard HEAD && git clean -df && git checkout [completed-workshop](https://github.com/mobify/workshop--hijax/blob/completed-workshop/README.md)
+git reset --hard HEAD && git clean -df && git checkout completed-workshop
 ```
