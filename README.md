@@ -2,7 +2,7 @@
 
 In order to demonstrate how Hijax, parsers and components work, we'll be adding the comments section to the PDP. The comments section should look like this:
 
-<img src="https://raw.githubusercontent.com/mobify/workshop--hijax/step-4-parsers-and-components/static/img/comments-mock.png?token=AKTX6hucqVA6zcvci1B4gEBpCtiNG2wkks5W1Il1wA%3D%3D" height="400" />
+<img src="https://github.com/mobify/workshop--hijax/blob/step-4-parsers-and-components/static/img/comments-mock.png?raw=true" height="400" />
 
 
 ### Install NPM Modules
