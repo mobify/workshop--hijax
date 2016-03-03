@@ -185,7 +185,7 @@ Components are HTML and CSS (sometimes JavaScript too) files that can be used ac
 
     The page should look like the mock. 
 
-    <img src="https://raw.githubusercontent.com/mobify/workshop--hijax/step-4-parsers-and-components/static/img/comments-mock.png?token=AKTX6hucqVA6zcvci1B4gEBpCtiNG2wkks5W1Il1wA%3D%3D" height="400" />
+    <img src="/static/img/comments-mock.png?raw=true" height="400" />
 
 8. To stop the preview, enter `[control] c` on the command line.
 
