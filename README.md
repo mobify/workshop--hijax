@@ -23,7 +23,7 @@ For this workshop we'll be starting work on the PDP for merlins potions. We'll b
 2. When the generator prompts you for a name, enter `pdp`.
 3. Select `baseView` as the view to extend.
 
- <img src="https://raw.githubusercontent.com/mobify/workshop--hijax/step-1-generate-pdp-view/static/img/view-generator.png?token=AKTX6kbxgJ29NTPDMDieP7VQbWtAv1iSks5W1I0hwA%3D%3D" height="100" />
+ <img src="/static/img/view-generator.png?raw=true" height="100" />
 
 4. To add the view to the router file, open the file `app/global/router.js` with a text editor.
 5. In `router.js` file, in the `define` dependencies array code block, add the new `pages/pdp/view` path for the new view file. Remember to append a comma the previous `page/category/view` last entry.
