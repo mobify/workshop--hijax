@@ -2,7 +2,7 @@
 
 Now that we're able to intercept the desktop site's AJAX call we can transform the markup for comments to fit our designs. We'll use components and parsers to better organize the code within the project.
 
-Parsers can be used to break up markup into smaller pieces to be used within a partial template file. 
+Parsers can be used to break up markup into smaller pieces to be used within a partial template file.
 
 Components are HTML and CSS (sometimes JavaScript too) files that can be used accross the site. In this case the comments component that we're creating could be used on another page as well.
 
@@ -181,9 +181,9 @@ Components are HTML and CSS (sometimes JavaScript too) files that can be used ac
 
 6. Back in the command line, enter the `grunt preview` command to start the browser preview.
 7. Work through the [Preview your Project](http://adaptivejs.mobify.com/v1.0/docs/preview-your-project) tutorial.
-    Use the `http://www.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
+    Use the `http://www.training.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
 
-    The page should look like the mock. 
+    The page should look like the mock.
 
     <img src="/static/img/comments-mock.png?raw=true" height="400" />
 
