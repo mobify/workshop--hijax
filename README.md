@@ -35,7 +35,7 @@ In order to demonstrate how Hijax, parsers and components work, we'll be adding 
 3. Save the two files.
 4. Back in the command line, enter the `grunt preview` command to start the browser preview.
 5. Work through the [Preview your Project](http://adaptivejs.mobify.com/v1.0/docs/preview-your-project) tutorial.
-    Use the `http://www.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
+    Use the `http://training.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
 
     A page with just the sites header and footer will appear.
 
@@ -52,7 +52,7 @@ In order to demonstrate how Hijax, parsers and components work, we'll be adding 
 7. Save the view file.
 8. Back in the command line, enter the `grunt preview` command to start the browser preview.
 9. Work through the [Preview your Project](http://adaptivejs.mobify.com/v1.0/docs/preview-your-project) tutorial.
-    Use the `http://www.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
+    Use the `http://training.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
 
     The page will now contain comments layed out in a table. The current layout won't work with the design for the page, but we'll address that in the next few steps.
 
