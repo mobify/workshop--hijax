@@ -88,12 +88,10 @@ In order to style the comments correctly we'll need to intercept the AJAX reques
     ```
 
 7. Back in the command line, enter the `grunt preview` command to start the browser preview.
-8. Work through the [Preview your Project](http://adaptivejs.mobify.com/v1.0/docs/preview-your-project) tutorial.
-    Use the `http://training.merlinspotions.com/potions/bulgeye-potion.html` URL for the site.
 
-    Open your browser's inspector and view the console. You'll see the console.log statement we just added that shows the data from the desktop site's AJAX call.
+    Open your browser's inspector and view the console. You'll see the result of the `console.log` statement we just added that shows the data from the desktop site's AJAX call.
 
-9. To stop the preview, enter `[control] c` on the command line.
+8. To stop the preview, enter `[control] c` on the command line.
 
 ##Continue to Step 4
 
